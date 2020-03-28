@@ -21,6 +21,6 @@
     "typescript": "^3.8.3"
   },
   "bin": {
-    "fire-migrate": "dist/index.js"
+    "ICouldntSleep": "dist/index.js"
   }
 }

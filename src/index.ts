@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+//THIS WILL NOT COMMIT IF THE FILE IS TOO BIG!
+
 // Imports
 import * as admin from 'firebase-admin';
 import * as csv from 'csvtojson';
@@ -38,18 +40,22 @@ async function migrate() {
             let data;
             if (file.includes(".json")) {
                 //will parse the json file into a javascript object
+
                 data = await fs.readJSON(file);
             }
             if (file.includes(".csv")) {
+
                 data = await readCSV(file);
             }
             //if its a csv
             //of not in because we are looping through objects
+
             for (const item of data) {
-                //basically if the user put an id, or else generate a random one
+                //basically if the user put ans id, or else generate a random one, in this case we are always autogenerating
                 const id = args.id ? item[args.id].toString() : colRef.doc().id
                 const docRef = colRef.doc(id);
                 batch.set(docRef, item);
+
             }
             await batch.commit();
             console.log("migration was a success")
@@ -59,18 +65,19 @@ async function migrate() {
     } catch (error) {
         console.log("Migration failed");
     }
-    //read the csv file
-    function readCSV(path): Promise<any> {
-        return new Promise((resolve, reject) => {
-            let lineCount = 0;
-            csv().fromFile(path).on("json", data => {
-                lineCount++;
-            }).on("endP_parsed", data => {
-                console.info('csv complete ${lineCount} row parsed');
-                resolve(data)
-            }).on("error", err => reject(err))
-        })
-    }
+
+}
+//read the csv file
+function readCSV(path): Promise<any> {
+    return new Promise((resolve, reject) => {
+        csv()
+            .fromFile(path)
+            .then(function (jsonArrayObj) { //when parse finished, result will be emitted here.
+                console.log(jsonArrayObj);
+                resolve(jsonArrayObj);
+            })
+
+    })
 }
 migrate();
 
