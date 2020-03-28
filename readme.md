@@ -14,8 +14,8 @@ npm i
 -----
 To Run the code 
 
-tsc  && npm link
-IcouldntSleep --src csv/NAMEOFCSV.csv --collection NAMEOFCOLLECTION
+tsc  && npm link </br>
+ICouldntSleep --src csv/NAMEOFCSV.csv --collection NAMEOFCOLLECTION
 
 
 
