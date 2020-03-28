@@ -15,7 +15,7 @@ npm i
 To Run the code 
 
 tsc  && npm link
-IcouldntSleep --src csv/NAMEOFCSV.csv --collection NAMEOFCOLLECTION
+ICouldntSleep --src csv/NAMEOFCSV.csv --collection NAMEOFCOLLECTION
 
 
 
