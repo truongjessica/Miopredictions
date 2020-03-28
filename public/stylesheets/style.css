@@ -7,4 +7,22 @@ a {
   color: #00B7FF;
 }
 
+#allpage{
+  background-image: url("../images/wp2150816-dark-road-wallpapers.jpg");
+}
 
+#fontfam{
+  font-family: Comic Sans, Comic Sans MS, cursive;
+}
+
+.warning-stripe {
+  padding:2px;
+  border:10px solid rgb(34, 6, 87);
+  background-color: #FFC71B;
+  vertical-align:middle;
+  color:835600;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+  width: 300px; /* You need a width if you're going to use auto margins */
+ }

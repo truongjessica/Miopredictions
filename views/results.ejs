@@ -1,0 +1,34 @@
+<% include ./partials/header.ejs %>
+
+  <div style="padding-top: 50px;">
+      <div class="container warning-stripe" 
+      style="
+      background-color: rgb(212, 211, 211);
+      text-align: center;
+      padding-top: 20px;" >
+        <div>
+        <h1 class="text-center" id="fontfam">Time Prediction</h1>
+        <div class="row" style="padding-top: 30px;">
+            <div class="col col-sm">
+              <p id="fontfam" style="float: right;" >Destination 1</p>
+            </div>
+            <div class="col col-sm">
+              <p id="fontfam" style="float: left;">Destination 1</p>
+            </div>
+        </div>
+        <p style="padding-top: 30px;">Todays time</p>
+        <div class="row" >
+            <div class="col col-lg">
+              <h1 id="getDate"></p>
+              </h1>
+            </div>
+        </div>
+    </div>
+     </div>
+     <script>
+        var currentdate = new Date(); 
+        var date = currentdate.getHours() + ":" + currentdate.getMinutes();
+        document.getElementById("getDate").innerHTML = date.toString();
+    </script>
+  
+  <% include ./partials/footer.ejs %>
