@@ -10,7 +10,7 @@ router.get('/', function (req, res, next) {
 
 
 
-router.get("/api", dataController.displayinfo);
+router.get("/api/:fileName", dataController.displayinfo);
 
 
 module.exports = router;
