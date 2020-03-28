@@ -11,8 +11,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    var _ = { label: 0, sent: function () { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function () { return this; }), g;
     function verb(n) { return function (v) { return step([n, v]); }; }
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
@@ -37,13 +37,15 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 // Imports
 var admin = require("firebase-admin");
 var csv = require("csvtojson");
 var fs = require("fs-extra");
 //command line prompt
+var express = require("express");
 var args = require("commander");
+var app = express();
 //essentially how we call our commands e.g npm firebase -s + description, argv simply states that its an argument from the terminal (C/C++ similarities)
 //args is for arguments, argv is for argument value, args
 args.version("0.0.1").option("-s, --src <path>", "Source file path")
@@ -95,7 +97,7 @@ function migrate() {
                     return [4 /*yield*/, batch.commit()];
                 case 6:
                     _a.sent();
-                    console.log("migration was a sucddddcess");
+                    console.log("migration was a success");
                     _a.label = 7;
                 case 7: return [3 /*break*/, 9];
                 case 8:
@@ -113,11 +115,10 @@ function readCSV(path) {
         csv()
             .fromFile(path)
             .then(function (jsonArrayObj) {
-            console.log(jsonArrayObj);
-            resolve(jsonArrayObj);
-        });
+                console.log(jsonArrayObj);
+                resolve(jsonArrayObj);
+            });
     });
 }
 migrate();
 //run
-//# sourceMappingURL=index.js.map
