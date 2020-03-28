@@ -7,7 +7,12 @@ import * as admin from 'firebase-admin';
 import * as csv from 'csvtojson';
 import * as fs from 'fs-extra';
 //command line prompt
+import * as express from 'express';
 import * as args from 'commander';
+
+const app = express();
+import * as bodyParser from 'body-parser';
+app.use(bodyParser.json());
 
 //essentially how we call our commands e.g npm firebase -s + description, argv simply states that its an argument from the terminal (C/C++ similarities)
 //args is for arguments, argv is for argument value, args
@@ -49,17 +54,18 @@ async function migrate() {
             }
             //if its a csv
             //of not in because we are looping through objects
-
+            /*
             for (const item of data) {
                 //basically if the user put ans id, or else generate a random one, in this case we are always autogenerating
                 const id = args.id ? item[args.id].toString() : colRef.doc().id
                 const docRef = colRef.doc(id);
                 batch.set(docRef, item);
 
+
             }
             await batch.commit();
             console.log("migration was a success")
-
+*/
         }
 
     } catch (error) {
