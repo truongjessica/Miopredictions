@@ -15,8 +15,8 @@ a {
   font-family: Comic Sans, Comic Sans MS, cursive;
 }
 
-.warning-stripe {
-  padding:2px;
+.wrapper {
+  padding:25px;
   border:10px solid rgb(34, 6, 87);
   background-color: #FFC71B;
   vertical-align:middle;
@@ -24,5 +24,5 @@ a {
   margin-left:auto;
   margin-right:auto;
   text-align:center;
-  width: 300px; /* You need a width if you're going to use auto margins */
+  width: 600px; /* You need a width if you're going to use auto margins */
  }

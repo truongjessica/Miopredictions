@@ -1,8 +1,8 @@
 <% include ./partials/header.ejs %>
 
-<div class="container-sm">
-  <div style="padding-top: 50px;">
-      <div class="jumbotron " >
+  <div style="padding-top:50px;">
+      <div class="wrapper" 
+      style="background-color: rgb(212, 211, 211);" >
         <h1 class="text-center">Select your intersections</h1>
         <div class="btn-group" >
           <p style="padding-right: 50px;">Select your starting intersection</p>
@@ -14,7 +14,7 @@
           </div>
         </div>
 
-        <div class="btn-group" style="padding-left: 50px;">
+        <div class="btn-group">
           <p style="padding-right: 50px;">Select your starting intersection</p>
           <button type="button" class="btn btn-secondary btn-sm dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Ending Point
@@ -23,26 +23,18 @@
             <button class="dropdown-item" type="button">Insert town here</button>
           </div>
         </div>
-         <div class="row" style="padding-top: 30px;">
-            <div class="col col-sm-3">
-              <p >Select Date and Time:</p>
-            </div>
-            <div class="col col-sm">
-              <input type="datetime-local">
-            </div>
-            <div class="col col-sm">
-            </div>
-            <div class="col col-sm">
-            </div>
-          </div>
-          <div id="successBtn" style="padding-top: 50px;">
-              <a class="btn btn-success" role="button" href="/results">
-             <h5>START</h5>
-             </a>
-          </div>
+
+        <div class="btn-group">
+          <p style="padding-right: 50px;">Select Date and Time:</p>
+          <input type="datetime-local">
+        </div>
+        <div id="successBtn" style="padding-top: 50px;">
+            <a class="btn btn-success" role="button" href="/results">
+              <h5>START</h5>
+            </a>
+        </div>
      </div>
   </div>
-</div>
   
     
   <% include ./partials/footer.ejs %>
