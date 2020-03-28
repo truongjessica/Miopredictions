@@ -1,12 +1,81 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <!-- CSS section -->
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/animate.css/animate.css" />
+    <link rel="stylesheet" href="/Content/app.css" />
   </head>
   <body>
-  <p>type</p>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand " href="#"><h1>Traffic Watcher</h1></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      
+   
+  </div>
+</nav>
+
+<div class="container-sm">
+  <div style="padding-top: 50px;">
+    <body >
+      <div class="jumbotron " >
+        <h1 class="text-center">Select your Intersection</h1>
+      </br>
+      </br>
+        <div class="btn-group" >
+          <p style="padding-right: 50px;">Select your starting intersection</p>
+          <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Starting Point
+          </button>
+          <div class="dropdown-menu">
+            <button class="dropdown-item" type="button">Insert intersections here</button>
+          </div>
+        </div>
+
+        <div class="btn-group" style="padding-left: 50px;">
+          <p style="padding-right: 50px;">Select your starting intersection</p>
+          <button type="button" class="btn btn-secondary btn-sm dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Ending Point
+          </button>
+          <div class="dropdown-menu">
+            <button class="dropdown-item" type="button">Insert town here</button>
+          </div>
+        </div>
+         <div class="row" style="padding-top: 30px;">
+            <div class="col col-sm-3">
+              <p >Select Date and Time:</p>
+            </div>
+            <div class="col col-sm">
+              <input type="datetime-local">
+            </div>
+            <div class="col col-sm">
+            </div>
+            <div class="col col-sm">
+            </div>
+          </div>
+          <div id="successBtn" style="padding-top: 50px;">
+             <button type="button" class="btn btn-success">Submit</button>
+          </div>
+     </div>
+  </div>
+</div>
+  
+    
+    <!-- JavaScript -->
+    <script src="jquery/dist/jquery.min.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
