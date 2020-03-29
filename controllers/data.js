@@ -12,9 +12,39 @@ module.exports.displayinfo = (req, res, next) => {
             var currentDate = new Date();
             //date time
 
+            for (var i = 0; i < jsonArrayObj.length; i++) {
+                delete jsonArrayObj[i]['Source_ID'];
+                delete jsonArrayObj[i]['Destination_ID'];
+                delete jsonArrayObj[i]['seconds average'];
 
 
-            // console.log(jsonArrayObj[1]);
+            }
+
+
+
+            let arr = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+            for (let i = 0; i < jsonArrayObj.length; i++) {
+                let dateSplit = jsonArrayObj[i].Start_time.split(" ");
+                let dateSplit2 = jsonArrayObj[i].End_time.split(" ");
+                jsonArrayObj[i].Start_time = dateSplit[1]
+                jsonArrayObj[i].End_time = dateSplit2[1]
+                jsonArrayObj[i].Date = dateSplit[0];
+
+                let date = dateSplit[0].split("-");
+                console.log(date[0] + " " + date[1] + "  " + date[2]);
+                let readableDate = new Date(parseInt(date[0], 10), parseInt(date[1], 10) - 1, parseInt(date[2], 10))
+                console.log(readableDate.getDay());
+                let num = readableDate.getDay();
+                jsonArrayObj[i].day = arr[num];
+                jsonArrayObj[i].average = 0
+
+
+                // jsonArrayObj[i].day = dateFormat.getDate()
+
+            }
+
+            console.log(jsonArrayObj[1]);
             // console.log(jsonArrayObj[2]);
             // console.log(jsonArrayObj[3]);
 
