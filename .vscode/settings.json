@@ -1,0 +1,7 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "/Users/lydiama/Downloads/json-simple-1.1.1 (3).jar",
+        "/Users/lydiama/Downloads/jar_files/**/*.jar"
+    ]
+}

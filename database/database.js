@@ -22,40 +22,65 @@ firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore();
 
 //-------------------------------------------------//
-
-var myDB_getTravelTime = function (startCity, endCity, startInt, endInt, time, callback) {
-    console.log('Getting average time of' + startInt + ' to ' + endInt + ' at ' + time);
-    var source = db.collection(startCity);
+var myDB_getTravelTime = function (startCity, startInt, endInt, timeOfDay, callback) {
+    console.log('Getting average time of' + startInt + ' to ' + endInt + ' at ' + timeOfDay);
+    var source = db.collection(startCity);  //Detroit or Windsor
     var results = null;
-    //check var names w Jason; can i compare time stamps like that? 
-
-    source.where("startLocation", "==", startInt).where("destination", "==", endInt)
+    
+    source.where("Source_Name", "==", startInt).where("Destination_name", "==", endInt)
         .get()
         .then(function (querySnapshot) {
             querySnapshot.forEach(function (doc) {
                 var document = doc.data();
-                var startofPeriod = doc.get("startTime");   //start of 15 minute time period    
-                var endOfPeriod = doc.get("endTime");   //end of 15 minute time period
+                var entryTimeOfDay = doc.get("Time_of_day");   //entry time of day
 
-                if (startTime <= time && endTime >= time) {     //if the time the person is travelling is within this binned interval....
+                if (timeOfDay == entryTimeOfDay) {     //if the time the person is travelling is within this binned interval....
                     console.log('success');
                     console.log(doc.id, " => ", document);
-                    results = doc.get("traveltime");
+                    avgSecs = doc.get("Travel_time");   //return average in seconds
+
+                    var measuredTime = new Date(null);
+                    measuredTime.setSeconds(Math.round(avgSecs)); //convert from double to int
+                    var results = measuredTime.toISOString().substr(11, 8);
+                    console.log(results);
+                    callback(results, null);
                 }
             });
         })
         .catch(function (error) {
             console.log("Error getting documents: ", error);
+            callback(null, error);
         });
 
-    callback(results, null);
+    //callback(results, null);
 }
 
-//var source = db.collection("testcity");
-//myDB_getTravelTime("CityA", "CityB", "Dorchester Road and Huron Church Road", "Grand Blvd W and Jeffries Fwy SSD", new firebase.firestore.Timestamp.now());
+var findTimeOfDay = function(startCity, startInt, endInt, time, callback) {
+    var selection = new Date(time);
+    var hour = selection.getHours();
+    var timeOfDay;
+    if (hour >= 0 && hour < 6) { // 12am to 6am late
+        timeOfDay = 'late';
+    } else if (hour >= 6 && hour < 9) { // 6am to 9am morning
+        timeOfDay = 'morning';
+    } else if (hour >= 9 && hour < 12) { // 9am to 12pm midMorning
+        timeOfDay = 'midMorning';
+    } else if (hour >= 12 && hour < 17) { // 12pm to 5pm afternoon
+        timeOfDay = 'afternoon';
+    } else if (hour >= 17 && hour < 21) { //5pm to 9pm dinner
+        timeOfDay = 'dinner';
+    } else {                            //night
+        timeOfDay = 'night';
+    }
+    console.log('tod: ' + timeOfDay);
+    callback(startCity, startInt, endInt, timeOfDay);
+}
 
+//myDB_getTravelTime("Detroit", "Dragoon and Fisher Fwy Ser Drs", "Totten Street and Huron Church Road", "2018-06-12T19:30");
+findTimeOfDay("Detroit", "Dragoon and Fisher Fwy Ser Drs", "Totten Street and Huron Church Road", "2018-06-12T19:30", myDB_getTravelTime);
 
 let database = {
+    getTimeOfDay: findTimeOfDay,
     getTravelTime: myDB_getTravelTime
 }
 

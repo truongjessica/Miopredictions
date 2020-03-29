@@ -1,5 +1,5 @@
 var express = require('express');
-//var db = require('../database/database.js'); once we set it up
+var db = require('../database/database.js'); 
 
 /* GET home page. */
 var getHomePage = function (req, res, next) {

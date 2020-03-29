@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var db = require('./database/database.js');
 
 var app = express();
 
@@ -43,6 +44,24 @@ app.use('/intersection/:id', function (req, res, next) {
   }
 });
 
+app.post('/postTravelTime', function(req, res, next) {
+    var startCity = req.body.startcity;
+    var startInt = req.body.start;
+    var endInt = req.body.end;
+    var time = req.body.time;
+
+    db.getTravelTime(startCity, startInt, endInt, time, function(data,err) {
+        if (err) {
+          res.send(err);
+        } else if (data == null) {
+          console.log('null');
+          res.send ('null');
+        } else {
+          console.log(data);
+          res.send(data);
+        }
+    });
+});
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -60,8 +79,4 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
-
-/*
-
-*/
 module.exports = app;
