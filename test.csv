@@ -1,5 +1,5 @@
-Source name,Source ID,Destination name,Destination ID,Start time,End time,Travel time (seconds)
-Dorchester Road and Huron Church Road,2fbf,Grand Blvd W and Jeffries Fwy SSD,5c5f,2020-01-31 00:09:24,2020-01-31 00:17:53,509
+Source_Name,Source_ID,Destination_name,Destination_ID,Start_time,End_time,seconds,average
+Dorchester Road and Huron Church Road,2fbf,Grand Blvd W and Jeffries Fwy SSD,5c5f,2020-01-31 00:09:24,2020-01-31 00:17:53,509,0
 Dorchester Road and Huron Church Road,2fbf,Grand Blvd W and Jeffries Fwy SSD,5c5f,2020-01-31 00:12:42,2020-01-31 00:28:48,966
 Dorchester Road and Huron Church Road,2fbf,Grand Blvd W and Jeffries Fwy SSD,5c5f,2020-01-31 01:46:11,2020-01-31 01:59:38,807
 Dorchester Road and Huron Church Road,2fbf,Grand Blvd W and Jeffries Fwy SSD,5c5f,2020-01-31 02:48:44,2020-01-31 03:00:24,700
