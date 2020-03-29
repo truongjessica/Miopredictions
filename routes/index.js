@@ -11,6 +11,7 @@ router.get('/', function (req, res, next) {
 
 
 router.get("/api/:fileName", dataController.displayinfo);
+router.("/averageResult", dataController.displayAverage);
 
 
 module.exports = router;

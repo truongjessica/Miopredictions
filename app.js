@@ -40,9 +40,6 @@ app.use(function (err, req, res, next) {
 
 
 /*
-app.use('/users', routes.get_homepage);
 
-app.use('/users', routes.get_userslisting);
-app.post('/posttraveltime', routes.post_predictedtime);
 */
 module.exports = app;

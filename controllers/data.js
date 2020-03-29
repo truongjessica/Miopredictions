@@ -1,6 +1,7 @@
 let fs = require('fs-extra');
 let csv = require('csvtojson');
 
+
 module.exports.displayinfo = (req, res, next) => {
 
 
@@ -9,7 +10,6 @@ module.exports.displayinfo = (req, res, next) => {
         .fromFile(req.params.fileName + ".csv")
         .then(function (jsonArrayObj) { //when parse finished, result will be emitted here.
 
-            var currentDate = new Date();
             //date time
 
             for (var i = 0; i < jsonArrayObj.length; i++) {
