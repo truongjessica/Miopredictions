@@ -23,8 +23,13 @@ var db = firebase.firestore();
 
 //-------------------------------------------------//
 var myDB_getTravelTime = function (startCity, startInt, endInt, timeOfDay, callback) {
-    console.log('Getting average time of' + startInt + ' to ' + endInt + ' at ' + timeOfDay);
-    var source = db.collection(startCity);  //Detroit or Windsor
+    console.log('Getting average time of ' + startCity + ' from '+ startInt + ' to ' + endInt + ' at ' + timeOfDay);
+    var source;
+    if (startCity == "Windsor") {
+        source = db.collection("Windsor");
+    } else {
+        source = db.collection("Detroit");
+    }
     var results = null;
     
     source.where("Source_Name", "==", startInt).where("Destination_name", "==", endInt)
@@ -32,6 +37,7 @@ var myDB_getTravelTime = function (startCity, startInt, endInt, timeOfDay, callb
         .then(function (querySnapshot) {
             querySnapshot.forEach(function (doc) {
                 var document = doc.data();
+                //console.log(document);
                 var entryTimeOfDay = doc.get("Time_of_day");   //entry time of day
 
                 if (timeOfDay == entryTimeOfDay) {     //if the time the person is travelling is within this binned interval....

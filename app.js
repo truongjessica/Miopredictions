@@ -45,7 +45,7 @@ app.use('/intersection/:id', function (req, res, next) {
 });
 
 app.post('/results', function (req, res, next) {
-  var startCity = "Windsor"
+  var startHardCode = "Detroit";
   var startInt = req.body.startInt;  //source intersection
   var endInt = req.body.endInt;  //destination
   var time = req.body.date;
@@ -56,7 +56,7 @@ app.post('/results', function (req, res, next) {
     } else if (timeOfDay == null) {
       console.log('null');
     } else {
-      db.getTravelTime(startCity, startInt, endInt, timeOfDay, function (data, err) {
+      db.getTravelTime(startHardCode, startInt, endInt, timeOfDay, function (data, err) {
         if (err) {
           res.send(err);
         } else if (data == null) {
@@ -65,7 +65,7 @@ app.post('/results', function (req, res, next) {
         } else {
           console.log(data);
           var results = {
-            startCity: startCity,
+            "startCity": startHardCode,
             "source": startInt,
             "destination": endInt,
             "travelTime": data
