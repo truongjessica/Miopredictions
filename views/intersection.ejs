@@ -15,12 +15,18 @@
       style="background-color: rgb(212, 211, 211);" >
         <div class="btn-group" >
           <p style="padding-right: 50px; padding-top: 15px">Select your starting intersection</p>
-          <button type="button" style="margin:15px;" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Starting Point
+          <button id = "startDDVal"type="button" style="margin:15px;" value ="Starting Point" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            
           </button>
+
           <div class="dropdown-menu">
-            <button class="dropdown-item" style="margin:15px;" type="button">Insert intersections here</button>
-          </div>
+            <% for (var i = 0; i < dropDown1.length; i++) { %>
+
+            <button id="startDD" class="dropdown-item" style="margin:15px;" type="button"><%= dropDown1[i] %></button>
+                <% } %>
+
+        </div>
+
         </div>
 
         <div class="btn-group">
@@ -29,8 +35,13 @@
             Ending Point
           </button>
           <div class="dropdown-menu">
-            <button class="dropdown-item" type="button">Insert town here</button>
-          </div>
+                          <% for (var i = 0; i < dropDown2.length; i++) { %>
+
+            <button id ="endDD" class="dropdown-item" type="button" value =""><%= dropDown2[i] %></button>
+                         <% } %>
+
+        </div>
+
         </div>
 
         <div class="btn-group">
@@ -45,6 +56,4 @@
      </div>
   </div>
   </div>
-  
-    
-  <% include ./partials/footer.ejs %>
+    <% include ./partials/footer.ejs %>

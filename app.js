@@ -23,6 +23,27 @@ app.use(express.static(path.join(__dirname, 'node_modules')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+app.use('/intersection/:id', function (req, res, next) {
+  let id = req.params.id;
+  let arr = ["Dorchester Road and Huron Church Road", "Totten Street and Huron Church Road", "Malden Road and Huron Church Road"]
+  let arr2 = ["Dragoon and Fisher Fwy Ser Drs", "Lafayette Boulevard and Waterman Street", "Grand Blvd W and Jeffries Fwy NSD", "Grand Blvd W and Jeffries Fwy SSD"]
+
+  if (id == "detroit") {
+
+    res.render('intersection',
+      {
+        title: 'Intersection', dropDown1: arr2, dropDown2: arr
+      });
+  }
+  if (id == "windsor") {
+    res.render('intersection',
+      {
+        title: 'Intersection', dropDown1: arr, dropDown2: arr2
+      });
+  }
+});
+
+
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
   next(createError(404));

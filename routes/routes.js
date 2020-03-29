@@ -11,7 +11,9 @@ var getUsersListing = function (req, res, next) {
   res.send('respond with a resource');
 };
 
+
 // Given startplace, endplace, time, get predicted travel time (alrdy computed)
+
 var postPredictedTime = function (req, res, next) {
   var startCity = req.body.startcity;
   var start = req.body.start;

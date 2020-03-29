@@ -7,14 +7,15 @@ let dataController = require("../controllers/data");
 
 
 /* GET home page. */
+
 router.get('/', function (req, res, next) {
-  res.render('selectTown', { title: 'Select Town' });
+
+  res.render('selectTown', { title: 'Select Town' },
+  );
 });
 
 
-router.get('/intersection', function (req, res, next) {
-  res.render('intersection', { title: 'Intersection' });
-});
+
 
 
 
