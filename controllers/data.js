@@ -41,7 +41,7 @@ module.exports.displayinfo = (req, res, next) => {
 
             }
 
-            console.log(jsonArrayObj[1]);
+            // console.log(jsonArrayObj[1]);
             // console.log(jsonArrayObj[2]);
             // console.log(jsonArrayObj[3]);
 
