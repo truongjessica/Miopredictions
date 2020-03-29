@@ -46,20 +46,34 @@ app.use('/intersection/:id', function (req, res, next) {
 
 app.post('/postTravelTime', function(req, res, next) {
     var startCity = req.body.startcity;
-    var startInt = req.body.start;
-    var endInt = req.body.end;
+    var startInt = req.body.start;  //source intersection
+    var endInt = req.body.end;  //destination
     var time = req.body.time;
 
-    db.getTravelTime(startCity, startInt, endInt, time, function(data,err) {
-        if (err) {
-          res.send(err);
-        } else if (data == null) {
+    db.getTimeOfDay(time, function(timeOfDay,err) {
+      if (err) {
+          console.log('err');
+      } else if (timeOfDay == null) {
           console.log('null');
-          res.send ('null');
-        } else {
-          console.log(data);
-          res.send(data);
-        }
+      } else {
+        db.getTravelTime(startCity, startInt, endInt, timeOfDay, function(data,err) {
+            if (err) {
+              res.send(err);
+            } else if (data == null) {
+              console.log('null');
+              res.send ('null');
+            } else {
+              console.log(data);
+              var results = {
+                "startCity": startCity,
+                "source": startInt,
+                "destination": endInt,
+                "travelTime": data
+              }
+              res.json(results);
+            }
+         });
+      }
     });
 });
 
