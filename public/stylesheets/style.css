@@ -2,7 +2,6 @@ body {
   padding: 50px;
   
   background-image: url("../images/wp2150816-dark-road-wallpapers.jpg");
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
@@ -24,19 +23,35 @@ a {
 }
 
 #fontfam{
-  font-family: Comic Sans, Comic Sans MS, cursive;
+  font: Candara;
+}
+
+.sizeHeader{
+  font-size: 90px;
+}
+
+.sizeforP{
+  font-size: 20px;
 }
 
 .wrapper {
-  padding:25px;
-  border:10px solid rgb(34, 6, 87);
   vertical-align:middle;
   color:835600;
   margin-left:auto;
   margin-right:auto;
   text-align:center;
-  width: 600px; /* You need a width if you're going to use auto margins */
+  width: 600px; 
  }
+
+ .wrapper2 {
+  vertical-align:middle;
+  color:835600;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:center;
+  width: 800px; 
+ }
+
 
  .divTable{
 	display: table;
