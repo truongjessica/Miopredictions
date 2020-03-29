@@ -1,0 +1,50 @@
+<% include ./partials/header.ejs %>
+
+  <div class="contentcontainer med left" style="margin-left: 200px; margin-up: 500px">
+       <div style = "position:absolute; left:80px; top:100px">
+  <div style="font-size:500%;color:white">
+	Select your intersections
+	  </div>
+	</div>
+  </div>
+
+
+  <div class="contentcontainer med right" style="margin-right: 200px;">
+  <div style="padding-top:50px;">
+      <div class="wrapper wow zoomIn" 
+      style="background-color: rgb(212, 211, 211);" >
+        <div class="btn-group" >
+          <p style="padding-right: 50px; padding-top: 15px">Select your starting intersection</p>
+          <button type="button" style="margin:15px;" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Starting Point
+          </button>
+          <div class="dropdown-menu">
+            <button class="dropdown-item" style="margin:15px;" type="button">Insert intersections here</button>
+          </div>
+        </div>
+
+        <div class="btn-group">
+          <p style="padding-right: 50px; padding-top: 15px">Select your ending intersection</p>
+          <button type="button" style="margin:15px" class="btn btn-secondary btn-sm dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Ending Point
+          </button>
+          <div class="dropdown-menu">
+            <button class="dropdown-item" type="button">Insert town here</button>
+          </div>
+        </div>
+
+        <div class="btn-group">
+          <p style="padding-right: 50px; padding-top: 15px">Select Date and Time:</p>
+          <input type="datetime-local">
+        </div>
+        <div id="successBtn" style="padding-top: 15px;">
+            <a class="btn btn-success" role="button" href="/results">
+              <h5>START</h5>
+            </a>
+        </div>
+     </div>
+  </div>
+  </div>
+  
+    
+  <% include ./partials/footer.ejs %>

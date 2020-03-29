@@ -1,0 +1,36 @@
+<% include ./partials/header.ejs %>
+
+  <div style="padding-top: 80px;">
+      <div class="container wrapper2" 
+      style="
+      background-color: rgba(221, 208, 208, 0);
+      text-align: center;
+      padding-top: 20px;" >
+        <div>
+        <h1 class="text-center sizeHeader" id="fontfam" style="color: rgb(255, 253, 253); text-size-adjust: 45px;">Time Prediction</h1>
+        <div class="row" style="padding-top: 30px;">
+            <div class="col col-sm">
+              <p class="wow fadeInLeft sizeforP" id="fontfam" style="color: rgb(182, 182, 182);">insert Destination 1</p>
+
+              <p id="fontfam" style="color: rgb(182, 182, 182)">to</p>
+              
+              <p class="wow fadeInRight sizeforP"  style="color: rgb(182, 182, 182);">insert Destination 2</p>
+            </div>
+           
+        </div>
+        <p class="sizeforP" style="color: rgb(255, 255, 255); padding-top: 50px;">Average Time</p>
+        <div class="row" >
+            <div class="col col-lg">
+              <h1 id="getDate" style="color: rgb(255, 249, 249);" class="wow fadeInDown sizeHeader" data-wow-duration="3s">
+              </h1>
+            </div>
+        </div>
+    </div>
+     </div>
+     <script>
+        var currentdate = new Date(); 
+        var date = currentdate.getHours() + ":" + currentdate.getMinutes();
+        document.getElementById("getDate").innerHTML = date.toString();
+    </script>
+  
+  <% include ./partials/footer.ejs %>
