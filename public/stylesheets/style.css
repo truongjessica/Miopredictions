@@ -1,5 +1,7 @@
 body {
   padding: 50px;
+  
+  background-image: url("../images/wp2150816-dark-road-wallpapers.jpg");
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -8,7 +10,17 @@ a {
 }
 
 #allpage{
-  background-image: url("../images/wp2150816-dark-road-wallpapers.jpg");
+  height: 900px;
+  width: 1720px;
+  margin-top: 10px;
+  margin-bottom: 100px;
+  margin-right: 150px;
+  margin-left: 80px;
+}
+
+#tableShape{
+  height:100%;
+  width: 100%;
 }
 
 #fontfam{
@@ -18,7 +30,6 @@ a {
 .wrapper {
   padding:25px;
   border:10px solid rgb(34, 6, 87);
-  background-color: #FFC71B;
   vertical-align:middle;
   color:835600;
   margin-left:auto;
@@ -26,3 +37,47 @@ a {
   text-align:center;
   width: 600px; /* You need a width if you're going to use auto margins */
  }
+
+ .divTable{
+	display: table;
+	width: 100%;
+}
+.divTableRow {
+	display: table-row;
+}
+.divTableHeading {
+	background-color: #EEE;
+	display: table-header-group;
+}
+.divTableCell, .divTableHead {
+	display: table-cell;
+	padding: 3px 10px;
+}
+.divTableHeading {
+	background-color: #EEE;
+	display: table-header-group;
+	font-weight: bold;
+}
+.divTableFoot {
+	background-color: #EEE;
+	display: table-footer-group;
+	font-weight: bold;
+}
+.divTableBody {
+	display: table-row-group;
+}
+
+.right {
+  position: absolute;
+  right: 100px;
+  width: 600px;
+  padding: 10px;
+}
+
+.left {
+  text-align: center;
+  position: absolute;
+  left: 150px;
+  width: 600px;
+  padding: 10px;
+}
