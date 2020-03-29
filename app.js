@@ -33,48 +33,49 @@ app.use('/intersection/:id', function (req, res, next) {
 
     res.render('intersection',
       {
-        title: 'Intersection', dropDown1: arr2, dropDown2: arr
+        title: 'Intersection', dropDown1: arr2, dropDown2: arr, startCity: "detroit"
       });
   }
   if (id == "windsor") {
     res.render('intersection',
       {
-        title: 'Intersection', dropDown1: arr, dropDown2: arr2
+        title: 'Intersection', dropDown1: arr, dropDown2: arr2, startCity: "windsor"
       });
   }
 });
 
-app.post('/postTravelTime', function(req, res, next) {
-    var startCity = req.body.startcity;
-    var startInt = req.body.start;  //source intersection
-    var endInt = req.body.end;  //destination
-    var time = req.body.time;
-
-    db.getTimeOfDay(time, function(timeOfDay,err) {
-      if (err) {
-          console.log('err');
-      } else if (timeOfDay == null) {
+app.post('/results', function (req, res, next) {
+  var startCity = "Windsor"
+  var startInt = req.body.startInt;  //source intersection
+  var endInt = req.body.endInt;  //destination
+  var time = req.body.date;
+  console.log(startInt + " " + endInt + " " + time + "  " + "\n\n\n");
+  db.getTimeOfDay(time, function (timeOfDay, err) {
+    if (err) {
+      console.log('err');
+    } else if (timeOfDay == null) {
+      console.log('null');
+    } else {
+      db.getTravelTime(startCity, startInt, endInt, timeOfDay, function (data, err) {
+        if (err) {
+          res.send(err);
+        } else if (data == null) {
           console.log('null');
-      } else {
-        db.getTravelTime(startCity, startInt, endInt, timeOfDay, function(data,err) {
-            if (err) {
-              res.send(err);
-            } else if (data == null) {
-              console.log('null');
-              res.send ('null');
-            } else {
-              console.log(data);
-              var results = {
-                "startCity": startCity,
-                "source": startInt,
-                "destination": endInt,
-                "travelTime": data
-              }
-              res.json(results);
-            }
-         });
-      }
-    });
+          res.send('null');
+        } else {
+          console.log(data);
+          var results = {
+            startCity: startCity,
+            "source": startInt,
+            "destination": endInt,
+            "travelTime": data
+          }
+          res.render('results', { title: "hy", results: results });
+
+        }
+      });
+    }
+  });
 });
 
 // catch 404 and forward to error handler

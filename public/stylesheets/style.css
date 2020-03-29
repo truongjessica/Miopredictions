@@ -1,11 +1,11 @@
 body {
   padding: 50px;
   
-  background-image: url("../images/wp2150816-dark-road-wallpapers.jpg");
+  background-image: url("../images/phh.jpeg");
 }
 
 a {
-  color: #00B7FF;
+  color: #FFF;
 }
 
 #allpage{
@@ -17,10 +17,20 @@ a {
   margin-left: 80px;
 }
 
+.paddingforBox{
+  border: 10px solid rgb(177, 173, 173);
+  border-radius: 35px;
+  padding-left: 50px;
+  padding-top: 50px;
+  padding-right: 50px;
+  padding-bottom: 50px;
+}
+
 #tableShape{
   height:100%;
   width: 100%;
 }
+
 
 #fontfam{
   font: Candara;
@@ -54,32 +64,32 @@ a {
 
 
  .divTable{
-	display: table;
-	width: 100%;
+    display: table;
+    width: 100%;
 }
 .divTableRow {
-	display: table-row;
+    display: table-row;
 }
 .divTableHeading {
-	background-color: #EEE;
-	display: table-header-group;
+    background-color: #FFF;
+    display: table-header-group;
 }
 .divTableCell, .divTableHead {
-	display: table-cell;
-	padding: 3px 10px;
+    display: table-cell;
+    padding: 3px 10px;
 }
 .divTableHeading {
-	background-color: #EEE;
-	display: table-header-group;
-	font-weight: bold;
+    background-color: #FFFF;
+    display: table-header-group;
+    font-weight: bold;
 }
 .divTableFoot {
-	background-color: #EEE;
-	display: table-footer-group;
-	font-weight: bold;
+    background-color: #FFFF;
+    display: table-footer-group;
+    font-weight: bold;
 }
 .divTableBody {
-	display: table-row-group;
+    display: table-row-group;
 }
 
 .right {

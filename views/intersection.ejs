@@ -8,6 +8,7 @@
 	</div>
   </div>
 
+<form action="/results" method="POST">
 
   <div class="contentcontainer med right" style="margin-right: 200px;">
   <div style="padding-top:50px;">
@@ -15,45 +16,57 @@
       style="background-color: rgb(212, 211, 211);" >
         <div class="btn-group" >
           <p style="padding-right: 50px; padding-top: 15px">Select your starting intersection</p>
+
           <button id = "startDDVal"type="button" style="margin:15px;" value ="Starting Point" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             
           </button>
 
-          <div class="dropdown-menu">
+          <div id = "start" class="dropdown-menu">
             <% for (var i = 0; i < dropDown1.length; i++) { %>
 
-            <button id="startDD" class="dropdown-item" style="margin:15px;" type="button"><%= dropDown1[i] %></button>
+            <button id="startDD<%= i %>" class="start dropdown-item" style="margin:15px;" type="button"><%= dropDown1[i] %></button>
                 <% } %>
 
         </div>
+          <input id = "inputStart" type="text" name="startInt" id="male" hidden = 'true'><br>
+
 
         </div>
 
         <div class="btn-group">
           <p style="padding-right: 50px; padding-top: 15px">Select your ending intersection</p>
-          <button type="button" style="margin:15px" class="btn btn-secondary btn-sm dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Ending Point
+          
+          <button type="button" style="margin:15px" id ="endDDVal" class="btn btn-secondary btn-sm dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           </button>
           <div class="dropdown-menu">
                           <% for (var i = 0; i < dropDown2.length; i++) { %>
 
-            <button id ="endDD" class="dropdown-item" type="button" value =""><%= dropDown2[i] %></button>
+            <button id ="endDD<%= i %>" class="end dropdown-item" type="button" value =""><%= dropDown2[i] %></button>
                          <% } %>
 
         </div>
+          <input type="text" id = "inputEnd" name="endInt" id="male"  hidden = 'true'><br>
 
         </div>
+
 
         <div class="btn-group">
           <p style="padding-right: 50px; padding-top: 15px">Select Date and Time:</p>
-          <input type="datetime-local">
+          <input name ="date" type="datetime-local">
         </div>
         <div id="successBtn" style="padding-top: 15px;">
-            <a class="btn btn-success" role="button" href="/results">
+            <input  class="btn btn-success" type="submit" value="Submit">
+
               <h5>START</h5>
-            </a>
+            </div>
         </div>
      </div>
   </div>
+
   </div>
+  </form>
     <% include ./partials/footer.ejs %>
+
+
+
+    
